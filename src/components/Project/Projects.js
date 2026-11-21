@@ -3,21 +3,16 @@ import { projects } from '../../data/content';
 import { hasFinePointer, prefersReducedMotion } from '../../hooks/motion';
 import './Projects.css';
 
-import img1 from '../Image/project1.png';
-import img2 from '../Image/project2.png';
-import img3 from '../Image/project3.png';
-import img4 from '../Image/project4.png';
-import img5 from '../Image/project5.png';
-import img6 from '../Image/gerbangbeasiswa.png';
-
-const images = {
-  'project1.png': img1,
-  'project2.png': img2,
-  'project3.png': img3,
-  'project4.png': img4,
-  'project5.png': img5,
-  'gerbangbeasiswa.png': img6,
-};
+// Semua gambar di components/Image/ dimuat otomatis berdasarkan nama file.
+// Menambah screenshot baru cukup menaruh file di folder itu lalu mengisi `image` di content.js.
+// @images-start
+const ctx = require.context('../Image', false, /\.(png|jpe?g|webp|avif)$/);
+const images = {};
+ctx.keys().forEach((k) => {
+  const m = ctx(k);
+  images[k.replace('./', '')] = m && m.default ? m.default : m;
+});
+// @images-end
 
 const isLink = (href) => !!href && href !== '#';
 
@@ -55,7 +50,7 @@ const Projects = () => {
     };
   }, []);
 
-  const showPreview = hover > -1 && hover !== open && !!projects[hover].image;
+  const showPreview = hover > -1 && hover !== open && !!images[projects[hover].image];
 
   return (
     <section className="work" id="work">
@@ -117,7 +112,7 @@ const Projects = () => {
                           {p.technologies.map((t) => <li key={t}>{t}</li>)}
                         </ul>
                       )}
-                      {p.image && (
+                      {images[p.image] && (
                         <figure className="row-fig">
                           <img src={images[p.image]} alt={`${p.title} screenshot`} loading="lazy" />
                         </figure>
@@ -133,7 +128,7 @@ const Projects = () => {
 
       <div className={`preview ${showPreview ? 'is-on' : ''}`} ref={preview} aria-hidden="true">
         <div className="preview-card">
-          {projects.map((p, i) => (p.image ? (
+          {projects.map((p, i) => (images[p.image] ? (
             <img key={p.title} src={images[p.image]} alt="" className={hover === i ? 'is-on' : ''} />
           ) : null))}
         </div>
