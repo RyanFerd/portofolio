@@ -8,6 +8,7 @@ import img2 from '../Image/project2.png';
 import img3 from '../Image/project3.png';
 import img4 from '../Image/project4.png';
 import img5 from '../Image/project5.png';
+import img6 from '../Image/gerbangbeasiswa.png';
 
 const images = {
   'project1.png': img1,
@@ -15,6 +16,7 @@ const images = {
   'project3.png': img3,
   'project4.png': img4,
   'project5.png': img5,
+  'gerbangbeasiswa.png': img6,
 };
 
 const isLink = (href) => !!href && href !== '#';
