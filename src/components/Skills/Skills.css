@@ -1,0 +1,71 @@
+.skills { padding-block: var(--section-y); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(32px, 6vw, 96px);
+}
+.skills-head { align-self: start; position: sticky; top: 110px; }
+.skills-head p { margin-top: 18px; color: var(--muted); max-width: 20rem; }
+
+/* Sketsa skema database */
+.schema { display: block; width: 100%; max-width: 380px; margin-top: clamp(28px, 4vw, 48px); overflow: visible; }
+.schema-box { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1; }
+.schema-name { fill: var(--blue-soft); font: 600 13px var(--font-display); letter-spacing: 0; }
+.schema-rule { stroke: var(--line-strong); stroke-width: 1; }
+.schema-col { fill: var(--muted); font: 400 12px var(--font-body); }
+.schema-col.is-key { fill: var(--text); }
+.schema-col.is-fk { fill: var(--blue-soft); }
+.schema-rel {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.5;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.schema-table { opacity: 0; transform: translateY(10px); }
+.schema-pulse { fill: #fff; filter: drop-shadow(0 0 6px var(--blue)); }
+.schema.is-on .schema-table { opacity: 1; transform: none; transition: opacity 0.8s var(--ease) var(--d), transform 0.9s var(--ease) var(--d); }
+.schema.is-on .schema-rel { stroke-dashoffset: 0; transition: stroke-dashoffset 1.2s var(--ease) var(--d); }
+@media (prefers-reduced-motion: reduce) {
+  .schema-table { opacity: 1; transform: none; }
+  .schema-rel { stroke-dashoffset: 0; }
+}
+
+.skills-group {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 16px 24px;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+}
+.skills-group:last-child { border-bottom: 1px solid var(--line); }
+.skills-group h3 {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--muted);
+  padding-top: 8px;
+}
+.skills-group ul { display: flex; flex-wrap: wrap; gap: 10px; }
+.skills-group li {
+  padding: 9px 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 1.05rem;
+  transition: background 0.3s, border-color 0.3s, color 0.3s, transform 0.5s var(--ease);
+}
+.skills-group li:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 900px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .skills-head { position: static; }
+  .schema { max-width: 340px; }
+  .skills-group { grid-template-columns: 1fr; gap: 12px; }
+  .skills-group h3 { padding-top: 0; }
+}

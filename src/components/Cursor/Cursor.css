@@ -1,0 +1,55 @@
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  pointer-events: none;
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor { display: block; }
+}
+
+.cursor-ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1px solid var(--blue-soft);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: width 0.4s var(--ease), height 0.4s var(--ease), margin 0.4s var(--ease),
+    background 0.3s, opacity 0.3s, border-color 0.3s;
+}
+
+.cursor.is-visible .cursor-ring { opacity: 0.7; }
+
+.cursor.is-link .cursor-ring {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  background: rgba(61, 107, 255, 0.12);
+}
+
+.cursor.is-label .cursor-ring {
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+  background: var(--blue);
+  border-color: var(--blue);
+  opacity: 1;
+}
+
+.cursor-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.cursor.is-label .cursor-label { opacity: 1; }

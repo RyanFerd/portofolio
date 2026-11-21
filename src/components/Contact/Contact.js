@@ -1,47 +1,65 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { profile, downloadUrl } from '../../data/content';
+import { useMagnetic } from '../../hooks/motion';
 import './Contact.css';
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+  const timer = useRef(null);
+  const copyBtn = useMagnetic();
+  const cvBtn = useMagnetic();
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+    } catch (e) {
+      const t = document.createElement('textarea');
+      t.value = profile.email;
+      document.body.appendChild(t);
+      t.select();
+      try { document.execCommand('copy'); } catch (err) { /* abaikan */ }
+      document.body.removeChild(t);
+    }
+    setCopied(true);
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => setCopied(false), 2200);
+  };
+
+  const links = [
+    { label: 'GitHub', href: profile.github },
+    { label: 'Instagram', href: profile.instagram },
+    { label: 'LinkedIn', href: profile.linkedin },
+  ].filter((l) => l.href);
+
   return (
-    <section id="contact" className="contact">
+    <section className="contact" id="contact">
       <div className="container">
-        <h2 className="section-title">Get in Touch</h2>
-        <div className="contact-content">
-          <div className="contact-info">
-            <p>
-              I'm always open to new opportunities and collaborations.
-              Feel free to reach out to me through any of the following channels:
-            </p>
-            <div className="contact-links">
-              <a href="ryanferdiansyah90@gmail.com" className="contact-link">
-                <i className="fas fa-envelope"></i>
-                ryanferdiansyah90@gmail.com
-              </a>
-              <a href="https://github.com/RyanFerd" className="contact-link" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-github"></i>
-                GitHub
-              </a>
-              <a href="https://linkedin.com/in/yourusername" className="contact-link" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-linkedin"></i>
-                LinkedIn
-              </a>
-            </div>
-          </div>
-          <form className="contact-form">
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" className="submit-btn">Send Message</button>
-          </form>
+        <p className="contact-lead">Have a project or a role in mind?</p>
+
+        <a className="contact-mail" href={`mailto:${profile.email}`} data-cursor="Email">
+          {profile.email}
+        </a>
+
+        <div className="contact-row">
+          <button className="btn btn-ghost" onClick={copy} ref={copyBtn}>
+            {copied ? 'Copied' : 'Copy email'}
+          </button>
+          {profile.cv && (
+            <a className="btn btn-solid" href={downloadUrl(profile.cv)} target="_blank" rel="noopener noreferrer" ref={cvBtn}>
+              Download CV
+            </a>
+          )}
+          <span className="sr-only" role="status" aria-live="polite">
+            {copied ? 'Email address copied' : ''}
+          </span>
+
+          <ul className="contact-links">
+            {links.map((l) => (
+              <li key={l.label}>
+                <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
