@@ -31,7 +31,7 @@ export const downloadUrl = (url) => {
 };
 
 export const marquee = [
-  'PHP', 'Node.js', 'React', 'MySQL', 'MongoDB', 'Flutter', 'REST APIs', 'Git',
+  'PHP', 'Node.js', 'React', 'MySQL', 'MongoDB', 'Laravel', 'Flutter', 'REST APIs', 'Git',
 ];
 
 export const about = {
@@ -45,7 +45,7 @@ export const about = {
 };
 
 export const skills = [
-  { group: 'Backend and full-stack', items: ['PHP', 'JavaScript', 'Node.js', 'RESTful API', 'React', 'Vue.js', 'HTML', 'CSS'] },
+  { group: 'Backend and full-stack', items: ['PHP', 'JavaScript', 'Node.js', 'RESTful API', 'React', 'Vue.js', 'HTML', 'CSS', 'Laravel'] },
   { group: 'Database and data', items: ['MySQL', 'MongoDB', 'ERD', 'Schema design', 'Normalization', 'SQL / NoSQL queries', 'Stored procedures', 'Query optimization'] },
   { group: 'Mobile', items: ['Flutter', 'SQFLite'] },
   { group: 'Tools and practice', items: ['Git', 'GitHub', 'CI/CD and deployment', 'UAT', 'Penetration testing', 'Project management', 'Technical documentation'] },
