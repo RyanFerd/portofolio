@@ -119,13 +119,24 @@ export const experience = {
 // image kosong = tanpa preview gambar. year kosong = tidak ditampilkan.
 export const projects = [
   {
+    title: 'Gerbang Beasiswa',
+    kind: 'Web application',
+    year: '2025',
+    description:
+      'Gerbang Beasiswa is an educational technology platform developed to simplify scholarship discovery and address information overload among students. Built as part of my undergraduate thesis, it implements a Content-Based Filtering approach using the Euclidean Distance algorithm to analyze students academic and financial profiles and recommend scholarships that best match their eligibility and needs.',
+    image: 'gerbangbeasiswa.png',
+    technologies: ['React.js','MongoDB', 'Express.js', 'Node.js'],
+    liveLink: 'https://gerbangbeasiswa.id/',
+    githubLink: '',
+  },
+  {
     title: 'Tecnopolis',
     kind: 'Web and mobile app',
     year: '2023',
     description:
       'A smart-city app that simplifies applications for permits to establish and run educational institutions. I was fully responsible for its development, with a focus on data management to support business functions and improve performance.',
     image: 'project1.png',
-    technologies: ['Flutter', 'PHP', 'MySQL'],
+    technologies: ['Laravel','Flutter', 'PHP', 'MySQL'],
     liveLink: '',
     githubLink: '',
   },
@@ -148,7 +159,7 @@ export const projects = [
       'Helps people find coffee shops and co-working spaces that fit what they need, making information about places easier to reach.',
     image: 'project2.png',
     technologies: ['HTML', 'CSS'],
-    liveLink: 'https://getcafesby.netlify.app/',
+    liveLink: '',
     githubLink: '',
   },
   {
