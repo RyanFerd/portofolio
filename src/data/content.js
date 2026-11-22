@@ -48,7 +48,7 @@ export const skills = [
   { group: 'Backend and full-stack', items: ['PHP', 'JavaScript', 'Node.js', 'Express.js', 'RESTful API', 'React', 'Vue.js', 'Laravel', 'HTML', 'CSS'] },
   { group: 'Database and data', items: ['MySQL', 'MongoDB', 'ERD', 'Schema design', 'Normalization', 'SQL / NoSQL queries', 'Stored procedures', 'Query optimization'] },
   { group: 'Recommendation systems', items: ['Content-Based Filtering', 'Euclidean Distance'] },
-  { group: 'Mobile', items: ['Flutter', 'SQFLite'] },
+  { group: 'Mobile', items: ['Flutter', 'SQLite'] },
   { group: 'Tools and practice', items: ['Git', 'GitHub', 'CI/CD and deployment', 'UAT', 'Penetration testing', 'Black box testing', 'Project management', 'Technical documentation'] },
   { group: 'Soft skills', items: ['Communication', 'Teamwork', 'Public speaking', 'Analytical', 'Detail-oriented', 'Fast learner'] },
   { group: 'Languages', items: ['Indonesian', 'English (TEP 450)'] },
