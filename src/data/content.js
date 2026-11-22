@@ -150,7 +150,7 @@ export const projects = [
   {
     title: 'Verifikasi Wisudawan',
     kind: 'Web application',
-    year: '',
+    year: '2024',
     description:
       'Compares the graduate candidate data submitted by private universities (PTS) against PDDIKTI records. Comes with a requirements document that specifies what the system has to do.',
     image: 'project5.png',
