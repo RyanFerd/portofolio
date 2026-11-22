@@ -20,7 +20,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/ryanferdiansyah22',
   // TODO: tempel link share Google Drive CV (Anyone with the link: Viewer).
   // Link biasa "drive.google.com/file/d/ID/view" otomatis diubah jadi link download.
-  cv: 'https://drive.google.com/file/d/1QoTSG31W19yMUGbYbPxnf6uWJ1qiM9Zc/view?usp=sharing',
+  cv: 'https://drive.google.com/file/d/1WMXsceasaRAMUJcvOQsZ7AFpLw5F0dqa/view?usp=sharing',
 };
 
 // Mengubah link share Google Drive menjadi link download langsung.
